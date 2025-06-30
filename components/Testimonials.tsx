@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -30,6 +30,15 @@ export default function TestimonialCarousel() {
     },
   ]
 
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length)
+    }, 5000)
+
+    return () => clearInterval(interval) // Cleanup on unmount
+  }, [testimonials.length])
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length)
   }
@@ -57,12 +66,12 @@ export default function TestimonialCarousel() {
 
   return (
     <div className="bg-gray-50 py-16 px-4">
-      <div className="max-w-4xl mx-auto relative">
+      <div className=" w-[60%]	 mx-auto relative">
         {/* Navigation Arrows */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-gray-50 rounded-full w-10 h-10"
+          className="absolute    top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-gray-50 rounded-full w-10 h-10"
           onClick={prevSlide}
         >
           <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -78,7 +87,7 @@ export default function TestimonialCarousel() {
         </Button>
 
         {/* Testimonial Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mx-16 text-center">
+        <div className="bg-white rounded-2xl shadow-lg p-8 mx-6 md:mx-16 text-center transition-all duration-500 ease-in-out">
           <div className="mb-6">
             <p className="text-gray-700 text-lg leading-relaxed">
               "

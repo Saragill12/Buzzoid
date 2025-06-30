@@ -48,7 +48,7 @@ export default function Header() {
             <Link href="/Buy-instagram-like" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
               Buy Instagram Likes
             </Link>
-            <Link href="/buy-instagram-followers" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+            <Link href="/Buy-instagram-follower" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
               Buy Instagram Followers
             </Link>
             <Link href="/buy-instagram-comments" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
@@ -67,7 +67,7 @@ export default function Header() {
 
           {/* Auth & Mobile Toggle */}
           <div className="flex items-center space-x-3 lg:space-x-6">
-            <Link href="/login" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
+            {/* <Link href="/login" className="text-gray-600 hover:text-gray-800 text-sm font-medium">
               Login
             </Link>
             <Link href="/signup">
@@ -77,7 +77,7 @@ export default function Header() {
               >
                 Sign up
               </Button>
-            </Link>
+            </Link> */}
 
             {/* Toggle Button for Mobile */}
             <button
@@ -96,7 +96,7 @@ export default function Header() {
             <Link href="/Buy-instagram-like" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
               Buy Instagram Likes
             </Link>
-            <Link href="/buy-instagram-followers" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
+            <Link href="/Buy-instagram-follower" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
               Buy Instagram Followers
             </Link>
             <Link href="/buy-instagram-comments" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
@@ -111,12 +111,12 @@ export default function Header() {
             <Link href="/contact" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
               Contact Us
             </Link>
-            <Link href="/login" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
+            {/* <Link href="/login" className="block text-gray-600 hover:text-gray-800 text-sm font-medium">
               Login
             </Link>
             <Link href="/signup" className="block bg-orange-500 text-white px-4 py-2 rounded-md text-center">
               Sign up
-            </Link>
+            </Link> */}
           </div>
         )}
       </nav>

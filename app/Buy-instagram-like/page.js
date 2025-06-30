@@ -28,4 +28,4 @@ const BuyInstagramLikes = () => {
   );
 };
 
-export default BuyInstagramLikes; // ✅ This line is REQUIRED
+export default BuyInstagramLikes;

@@ -7,7 +7,9 @@ export default function FAQSection() {
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
-    setOpenItems((prev) => (prev.includes(index) ? prev.filter((item) => item !== index) : [...prev, index]))
+    setOpenItems((prev) =>
+      prev.includes(index) ? prev.filter((item) => item !== index) : [...prev, index]
+    )
   }
 
   const faqItems = [
@@ -68,18 +70,22 @@ export default function FAQSection() {
     },
   ]
 
-  // Split items into two columns
-  const leftColumnItems = faqItems.filter((_, index) => index % 2 === 0)
-  const rightColumnItems = faqItems.filter((_, index) => index % 2 === 1)
-
-  const FAQItem = ({ item, index, originalIndex }: { item: any; index: number; originalIndex: number }) => {
+  const FAQItem = ({
+    item,
+    index,
+    originalIndex,
+  }: {
+    item: any
+    index: number
+    originalIndex: number
+  }) => {
     const isOpen = openItems.includes(originalIndex)
 
     return (
-      <div className="bg-white h-13 rounded-lg border border-gray-200 mb-4">
+      <div className="bg-white rounded-lg border border-gray-200 mb-4">
         <button
           onClick={() => toggleItem(originalIndex)}
-          className="w-full p-3 text-left flex justify-between items-center hover:text-gray-100 transition-colors duration-200"
+          className="w-full p-4 text-left flex justify-between items-center hover:text-gray-900 transition-colors duration-200"
         >
           <span className="text-gray-800 font-medium pr-4">{item.question}</span>
           {isOpen ? (
@@ -98,33 +104,20 @@ export default function FAQSection() {
   }
 
   return (
-    <div className="py-16 px-4  bg-white">
-      <div className="w-[65%] mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="py-16 px-4 bg-white">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12">
+        {/* ✅ LEFT: Title */}
+        <div className="w-full lg:w-1/3">
+          <h2 className="text-4xl font-bold text-gray-900 leading-snug">
             <span className="text-orange-500">Buy Instagram Likes</span> Easily With Buzzoid
           </h2>
-          <p className="text-gray-600 text-lg">
-            Over 1,000 daily customers trust us as the best site to deliver real Instagram likes
-          </p>
         </div>
 
-        {/* FAQ Grid */}
-        <div className="grid grid-cols-1  lg:grid-cols-2 gap-8">
-          {/* Left Column */}
-          <div>
-            {leftColumnItems.map((item, index) => (
-              <FAQItem key={index * 2} item={item} index={index} originalIndex={index * 2} />
-            ))}
-          </div>
-
-          {/* Right Column */}
-          <div>
-            {rightColumnItems.map((item, index) => (
-              <FAQItem key={index * 2 + 1} item={item} index={index} originalIndex={index * 2 + 1} />
-            ))}
-          </div>
+        {/* ✅ RIGHT: FAQs */}
+        <div className="w-full lg:w-2/3">
+          {faqItems.map((item, index) => (
+            <FAQItem key={index} item={item} index={index} originalIndex={index} />
+          ))}
         </div>
       </div>
     </div>

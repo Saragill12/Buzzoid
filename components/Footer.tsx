@@ -9,30 +9,30 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
           <div>
-            <h3 className="font-semibold ml-1 mb-2">FAQ</h3>
+            <h3 className="font-semibold ml-[-38%] mb-2">FAQ</h3>
           </div>
           <div>
-            <h3 className="font-semibold  -ml-2 mb-2">Blog</h3>
+            <h3 className="font-semibold  ml-[-115%] mb-2">Blog</h3>
           </div>
           <div>
-            <h3 className="font-semibold mb-2">About Us</h3>
+            <h3 className="font-semibold ml-[-190%] mb-2">About Us</h3>
           </div>
           <div>
-            <h3 className="font-semibold mb-2">Our Team</h3>
+            <h3 className="font-semibold ml-[-245%] mb-2">Our Team</h3>
           </div>
           <div>
-            <h3 className="font-semibold mb-2">Contact Us</h3>
+            <h3 className="font-semibold ml-[-300%] mb-2">Contact Us</h3>
           </div>
           <div>
-            <h3 className="font-semibold mb-2">Terms of Service</h3>
-            <h3 className="font-semibold mt-2">Privacy Policy</h3>
+            <h3 className="font-semibold ml-[-350%] mb-2">Terms of Service</h3>
+            {/* <h3 className="font-semibold ml-[-300%]  mb-2">Privacy Policy</h3> */}
           </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 mt-10">
           <div>
-            <h4 className="font-semibold ml-3 mb-2">Instagram Services</h4>
-            <ul className="space-y-1">
+            <h4 className="font-semibold -ml-20 mb-2">Instagram Services</h4>
+            <ul className="space-y-1 -ml-20">
               <li><Link href="#">Buy Instagram Likes</Link></li>
               <li><Link href="#">Buy Instagram Comments</Link></li>
               <li><Link href="#">Buy Instagram Followers</Link></li>
@@ -42,8 +42,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-2">TikTok Services</h4>
-            <ul className="space-y-1">
+            <h4 className="font-semibold -ml-10 mb-2">TikTok Services</h4>
+            <ul className="space-y-1 -ml-10">
               <li><Link href="#">Buy TikTok Likes</Link></li>
               <li><Link href="#">Buy TikTok Followers</Link></li>
               <li><Link href="#">Buy TikTok Views</Link></li>
@@ -51,8 +51,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-2">YouTube Services</h4>
-            <ul className="space-y-1">
+            <h4 className="font-semibold -ml-10 mb-2">YouTube Services</h4>
+            <ul className="space-y-1 -ml-10">
               <li><Link href="#">Buy YouTube Views</Link></li>
               <li><Link href="#">Buy YouTube Subscribers</Link></li>
               <li><Link href="#">Buy YouTube Likes</Link></li>
@@ -60,8 +60,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-2">Tools & Resources</h4>
-            <ul className="space-y-1">
+            <h4 className="font-semibold -ml-10 mb-2">Tools & Resources</h4>
+            <ul className="space-y-1 -ml-10">
               <li><Link href="#">Instagram Video Downloader</Link></li>
               <li><Link href="#">Instagram Profile Picture Viewer</Link></li>
               <li><Link href="#">Instagram Story Downloader</Link></li>
@@ -83,8 +83,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-2">My Account</h4>
-            <ul className="space-y-1">
+            <h4 className="font-semibold ml-10 mb-2">My Account</h4>
+            <ul className="space-y-1 ml-10">
               <li><Link href="#">Log In</Link></li>
               <li><Link href="#">Sign Up</Link></li>
             </ul>
@@ -97,7 +97,7 @@ export default function Footer() {
             <span>EN</span>
           </div>
 
-          <div className="flex items-center space-x-1 text-gray-600">
+          <div className="flex items-center ml-[60%] space-x-1 text-gray-600">
             <span>© 2025 Buzzoid. All Rights Reserved.</span>
             <span>·</span>
             <span>Last Page Ltd. (HE470127), Nicosia, Cyprus.</span>
