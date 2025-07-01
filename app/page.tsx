@@ -8,7 +8,7 @@ import GetStartedSection from "@/components/get-started-section"
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import BuyInstagramLikes from "@/components/BuyInstagramLikes";
-
+import Follower from '@/components/Follower'
 export default function Home() {
   return (
     <main role="main" tabIndex={-1}>
@@ -18,6 +18,7 @@ export default function Home() {
       <ImageContentSection />
       <ServicesSection />
       <BuyInstagramLikes />
+      <Follower />
       <WhyBuzzoidSection />
       <GuaranteesSection />
       <GetStartedSection />

@@ -59,11 +59,12 @@ const HowItWorksSection: React.FC = () => {
             </div>
           ))}
         </div>
-<div className="text-center text-base leading-snug">
+<div className="text-center text-xl mt-5 leading-snug">
   <p className="text-orange-500 font-medium">
     No matter why you want to boost your Instagram profile,
-    you need more followers to do it. Buzzoid's
   </p>
+  <p className="text-orange-500 font-medium">    you need more followers to do it. Buzzoid's
+</p>
   <p className="text-black">active Instagram followers and fast delivery times</p>
   <p className="text-black">jumpstart your organic growth, sending your</p>
   <p className="text-black">follower count soaring!</p>

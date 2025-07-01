@@ -66,14 +66,10 @@ const PackageCard: React.FC<PackageCardProps> = ({
   </div>
 );
 
-type PackagesSectionProps = {
-  fromInsta?: boolean;
-};
-
-const PackagesSection: React.FC<PackagesSectionProps> = ({ fromInsta = true }) => {
+const PackagesSection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [selectedTab, setSelectedTab] = useState<'high' | 'premium'>('high');
   const [currentNotification, setCurrentNotification] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<'high' | 'active' | 'vip'>('active');
 
   const selectedPackage = packages[selectedIndex];
   const basePrice = selectedPackage.price ?? 3.99;
@@ -105,7 +101,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ fromInsta = true }) =
         </p>
       </div>
 
-      {/* Stars + Notification + Trust */}
+      {/* Stars + Notification */}
       <div className="flex flex-wrap justify-center items-center gap-6 mb-12">
         <div className="flex items-center gap-2">
           <div className="flex">
@@ -137,42 +133,49 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ fromInsta = true }) =
             ))}
           </div>
         </div>
-
-        <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg">
-          <div className="w-10 h-6 bg-gray-900 rounded flex items-center justify-center">
-            <span className="text-white text-xs font-bold">Pay</span>
-          </div>
-        </div>
       </div>
 
       {/* Tabs */}
       <div className="max-w-md mx-auto py-8">
-        {fromInsta && (
-          <div className="flex items-center gap-8 text-sm font-semibold rounded-lg overflow-hidden">
-            <button
-              className={`flex-1 h-20 px-4 py-2 rounded-t-2xl border border-gray-300 border-b-0 ${
-                selectedTab === 'high' ? 'bg-white' : ''
-              }`}
-              onClick={() => setSelectedTab('high')}
-            >
-              High-Quality Likes
-            </button>
-         <button
+        <div className="flex items-center gap-4 text-sm font-semibold rounded-lg overflow-hidden">
+          <button
+            onClick={() => setActiveTab('high')}
+            className={`flex-1 h-20 px-4 py-2 rounded-t-2xl border border-gray-300 border-b-0 ${
+              activeTab === 'high' ? 'text-black bg-white' : 'text-gray-500 bg-gray-100'
+            }`}
+          >
+            High-Quality
+          </button>
+
+          <button
+            onClick={() => setActiveTab('active')}
+            className={`flex-1 h-20 px-4 py-2 rounded-t-2xl border border-gray-300 border-b-0 ${
+              activeTab === 'active' ? 'text-white' : 'text-gray-500 bg-gray-100'
+            }`}
+            style={
+              activeTab === 'active'
+                ? { backgroundImage: 'linear-gradient(to right, #296FF9, #59CEFC)' }
+                : undefined
+            }
+          >
+            Active
+          </button>
+
+     <button
+  onClick={() => setActiveTab('vip')}
   className={`flex-1 h-20 px-4 py-2 rounded-t-2xl border border-gray-300 border-b-0 ${
-    selectedTab === 'premium' ? 'text-white' : ''
+    activeTab === 'vip' ? 'text-white' : 'text-gray-500 bg-gray-100'
   }`}
   style={
-    selectedTab === 'premium'
-      ? { backgroundImage: 'linear-gradient(to right, #296FF9, #59CEFC)' }
+    activeTab === 'vip'
+      ? { backgroundImage: 'linear-gradient(to right, #952EFF, rgba(149, 46, 255, 0))' }
       : undefined
   }
-  onClick={() => setSelectedTab('premium')}
 >
-  Premium Likes
+  VIP
 </button>
 
-          </div>
-        )}
+        </div>
 
         {/* Package Cards */}
         <section className="rounded-b-2xl shadow-xl p-6 border border-gray-300 border-t-0">
@@ -187,7 +190,6 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ fromInsta = true }) =
             ))}
           </div>
 
-          {/* Pricing */}
           <div className="text-center mt-6">
             <p className="text-2xl font-bold text-gray-900">
               <span className="text-pink-600">${salePrice.toFixed(2)}</span>{' '}
@@ -202,75 +204,68 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ fromInsta = true }) =
       </div>
 
       {/* Feature Boxes */}
-      <div className="grid md:grid-cols-2 gap-4 mt-10 w-full md:max-w-2xl mx-auto">
-        {/* High Quality Box */}
+      <div className="grid md:grid-cols-3 gap-4  mt-10 w-full md:max-w-2xl mx-auto">
         <div
-          className={`w-full md:w-[170px] ml-40 p-3 rounded-xl shadow border ${
-            selectedTab === 'high' ? 'border-red-500 bg-white' : 'border-gray-200 bg-gray-50'
+          className={`w-full p-3 rounded-xl shadow border ${
+            activeTab === 'high' ? 'border-red-500 bg-white' : 'border-gray-200 bg-gray-50'
           }`}
         >
-          <h3 className="text-md font-semibold text-gray-900 mb-3">High Quality Likes</h3>
+          <h3 className="text-md font-semibold rounded-t-xl h-[80px] text-gray-900 mb-3">High Quality Followers</h3>
           <ul className="space-y-2 text-sm text-gray-700">
-            <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>REAL</strong> people</span>
-            </li>
-            <li className="ml-6">
-              <a href="#" className="text-blue-600 text-sm underline hover:text-blue-700 transition">
-                What’s the difference?
-              </a>
-            </li>
-              <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>ACTIVE</strong> people</span>
-            </li>  <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>ACTIVE</strong> people</span>
-            </li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />REAL users</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Instant Delivery</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Split Likes Option</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Split Likes Option</li>
           </ul>
         </div>
 
-        {/* Premium Box */}
         <div
-          className={`w-full md:w-[170px] p-3 rounded-xl shadow border ${
-            selectedTab === 'premium' ? 'border-blue-500 bg-white' : 'border-gray-200 bg-gray-50'
+          className={`w-full p-3 rounded-xl shadow border ${
+            activeTab === 'active' ? 'border-blue-500 bg-white' : 'border-gray-200 bg-gray-50'
           }`}
         >
-         <div
-  className="rounded-t-xl -mx-3 -mt-3 px-3 pt-3 pb-2 w-[170px] text-white"
-  style={{
-    backgroundImage: 'linear-gradient(to bottom right, #296FF9, #59CEFC)',
-  }}
->
-  <h3 className="text-md font-semibold mb-1 flex items-center gap-1">
-    Premium Likes <span className="text-blue-200 text-base">❓</span>
-  </h3>
-</div>
-
+          <div className="rounded-t-xl -mx-3 -mt-3 px-3 pt-3 pb-2 text-white"
+            style={{ backgroundImage: 'linear-gradient(to bottom right, #296FF9, #59CEFC)' }}>
+            <h3 className="text-md font-semibold mb-1 flex items-center gap-1">
+              Active Followers <span className="text-blue-200 text-base">❓</span>
+            </h3>
+          </div>
           <ul className="space-y-2 text-sm text-gray-700 mt-3">
-            <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>ACTIVE</strong> people</span>
-            </li>
-            <li className="ml-6">
-              <a href="#" className="text-blue-600 text-sm underline hover:text-blue-700 transition">
-                What’s the difference?
-              </a>
-            </li>
-              <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>ACTIVE</strong> people</span>
-            </li>
-              <li className="flex items-start gap-2">
-              <FaCheck className="text-green-500 mt-1" />
-              <span><strong>REAL</strong> likes from <strong>ACTIVE</strong> people</span>
-            </li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Higher engagement</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 -mt-1" />Explore Page Reach</li>
+                        <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Guaranteed delivery</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />30 day refills</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />No password required</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />24/7 support</li>
+
+                  </ul>
+        </div>
+
+        <div
+          className={`w-full p-3 rounded-xl shadow border ${
+            activeTab === 'vip' ? 'border-purple-600 bg-white' : 'border-gray-200 bg-gray-50'
+          }`}
+        >
+          <div className="rounded-t-xl -mx-3 -mt-3 px-3 pt-3 pb-2 text-white"
+style={{ backgroundImage: 'linear-gradient(to bottom right, #952EFF, rgba(149, 46, 255, 0))' }}>
+            <h3 className="text-md font-semibold mb-1 flex items-center gap-1">
+              Exclusive / VIP <span className="text-yellow-100 text-base">⭐</span>
+            </h3>
+          </div>
+          <ul className="space-y-2 text-sm text-gray-700 mt-3">
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Manual review</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Highest trust score</li>
+             <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Manual review</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Highest trust score</li> <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Manual review</li>
+            <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Highest trust score</li>
+                        <li className="flex items-start gap-2"><FaCheck className="text-green-500 mt-1" />Highest trust score</li>
+
           </ul>
         </div>
       </div>
 
-      {/* Final Delivery Counter */}
-      <div className="text-center text-2xl md:text-3xl font-bold mt-16 leading-snug">
+      {/* Delivery count */}
+      <div className="text-center text-2xl md:text-3xl  font-bold mt-16 leading-snug">
         <div>We have proudly delivered over</div>
         <div className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
           9,840,561,378 likes

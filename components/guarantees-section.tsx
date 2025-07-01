@@ -26,24 +26,24 @@ export default function GuaranteesSection() {
     <section className="relative mt-20 pb-14 md:pb-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Guarantees</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Guarantees</h2>
           <p className="text-lg text-gray-600">
             At Buzzoid, we also pride ourselves on quality, security, and service.
           </p>
         </div>
 
-<div className="grid sm:grid-cols-3 w-[88%] ml-[7%] gap-6 items-start sm:items-stretch mt-8 md:mt-10">
+<div className="grid sm:grid-cols-3 w-[78%] ml-[12%] gap-6 items-start sm:items-stretch mt-8 md:mt-10">
           {guarantees.map((guarantee, index) => (
             <div
               key={index}
-className="bg-white rounded-xl h-[98%] p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+className="bg-white rounded-xl h-[105%] p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-shadow"
             >
               <div className="mb-6 ">
                 <Image
                   src={guarantee.icon || "/placeholder.svg"}
                   alt={guarantee.title}
-                  width={50}
-                  height={50}
+                  width={60}
+                  height={60}
                   className="mx-auto"
                 />
               </div>

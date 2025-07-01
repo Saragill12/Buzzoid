@@ -1,62 +1,84 @@
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
 
 export default function WhyBuzzoidSection() {
   return (
-    <section className="border-t border-gray-400/50 relative pt-6 pb-4 md:pt-12">
+    <section className="border-t border-gray-400/50 mt-10 relative pt-6 pb-4 md:pt-12">
       {/* Hex icon */}
       <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-        <svg width="32" height="39" viewBox="0 0 32 39" fill="none">
-          <g filter="url(#filter0_dddd_6_4716)">
+        <svg width="42" height="35" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#hex-shadow)">
+            <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" fill="white" />
+            <path d="M16 7L24 12V20L16 25L8 20V12L16 7Z" fill="#E4E4E7" />
             <path
-              d="M15.5639 1.78599C15.8733 1.60736 16.2545 1.60736 16.5639 1.78599L27.5682 8.13931C27.8776 8.31794 28.0682 8.64807 28.0682 9.00534V21.712C28.0682 22.0692 27.8776 22.3994 27.5682 22.578L16.5639 28.9313C16.2545 29.11 15.8733 29.11 15.5639 28.9313L4.55964 22.578C4.25024 22.3994 4.05964 22.0692 4.05964 21.712V9.00534C4.05964 8.64807 4.25024 8.31794 4.55964 8.13931L15.5639 1.78599Z"
-              fill="#FCFBFD"
+              d="M16 2L28 9V23L16 30L4 23V9L16 2Z"
+              stroke="#E7EAF0"
+              strokeOpacity="0.62"
+              strokeWidth="0.5"
             />
           </g>
+          <defs>
+            <filter id="hex-shadow" x="0" y="0" width="32" height="36" filterUnits="userSpaceOnUse">
+              <feOffset dy="0" />
+              <feGaussianBlur stdDeviation="0.5" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.2 0 0 0 0 0.3 0 0 0 0 0.4 0 0 0 0.1 0"
+              />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="dropShadow" />
+              <feBlend mode="normal" in="SourceGraphic" in2="dropShadow" result="shape" />
+            </filter>
+          </defs>
         </svg>
       </div>
 
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             Why{" "}
             <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
               Buzzoid?
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 max-w-3xl mx-auto">
             We're not the only provider offering Instagram and TikTok interactions for sale. We're the best, though, and
             we want you to feel comfortable trying our services.
           </p>
         </div>
 
-        {/* First Block: Text Left, Image Right */}
-        <div className="flex flex-col ml-[18%] lg:flex-row items-center gap-12">
+        {/* First Block */}
+        <div className="flex flex-col ml-[10%] lg:flex-row  items-center gap-8">
           <div className="lg:w-1/2">
-            <h2 className="text-[38px] leading-[55px] font-bold text-[#2c323e] mb-2 font-serif">
-              Social Media
+            <h2 className="text-[26px] leading-[36px] ml-20 font-bold text-[#2c323e] mb-1 font-serif">
+              Industry-Leading
             </h2>
-            <h2 className="text-[38px] -mt-3 leading-[55px] font-bold text-[#2c323e] mb-6 font-serif">
-              Visibility
+            <h2 className="text-[26px] -mt-2 leading-[36px]  ml-20 font-bold text-[#2c323e] mb-4 font-serif">
+              Services
             </h2>
 
-            <div className="space-y-2 text-black text-lg">
-              <p>Instagram and TikTok have become so</p>
-              <p>popular worldwide that it's almost impossible</p>
-              <p>for users to earn widespread visibility and</p>
-              <p>interaction with the content that they create.</p>
+            <div className="space-y-1 text-black ml-20 text-sm leading-relaxed">
+              <p>Buzzoid has been delivering high-quality,</p>
+              <p>real Instagram followers, likes, and video</p>
+              <p>views for more than a dozen years, and</p>
+              <p>we’ve been the top-ranked Instagram service</p>
+              <p>provider ever since. We’ve also been</p>
+              <p>featured as a trusted IG service in</p>
+              <p>publications like Men’s Journal, US Weekly,</p>
+              <p>and 303 Magazine.</p>
             </div>
 
-            <div className="mt-4 space-y-2 text-gray-600 text-base">
-              <p>But when users see accounts and posts with large</p>
-              <p>numbers of followers, views, likes, and comments,</p>
-              <p>they're likely to stop and see what the fuss is about.</p>
+            <div className="mt-3 space-y-1 ml-20 text-gray-600 text-sm">
+              <p>When TikTok was first open for American and</p>
+              <p>European signups, we added TikTok services to our</p>
+              <p>menu almost immediately and rapidly became the</p>
+              <p>highest-rated TikTok provider as well.</p>
             </div>
           </div>
 
-          <div className="lg:w-1/2 -ml-60 flex justify-center">
+          <div className="lg:w-1/2 -ml-40 flex justify-center">
             <Image
-              src="https://buzzoid.com/wp-content/themes/buzz/v3/ic_1.w800.q50-CfqC3x_O.png"
+              src="https://buzzoid.com/wp-content/themes/buzz/v3/ic_3.w800.q50-GVybWzQe.png"
               alt="Social Media Visibility"
               width={250}
               height={250}
@@ -65,11 +87,11 @@ export default function WhyBuzzoidSection() {
           </div>
         </div>
 
-        {/* Second Block: Image Left, Text Right */}
-        <div className="flex flex-col  lg:flex-row items-center gap-12 mt-16">
+        {/* Second Block */}
+        <div className="flex flex-col lg:flex-row items-center gap-8 mt-14">
           <div className="lg:w-1/2 ml-20 flex justify-center">
             <Image
-              src="https://buzzoid.com/wp-content/themes/buzz/v3/ic_2.w800.q50-ChRN7jqV.png"
+              src="https://buzzoid.com/wp-content/themes/buzz/v3/ic_4.w800.q50-az_dmH0i.png"
               alt="Accelerated Profile Growth"
               width={250}
               height={250}
@@ -78,25 +100,33 @@ export default function WhyBuzzoidSection() {
           </div>
 
           <div className="lg:w-1/2">
-            <h2 className="text-[38px] ml-[8%] leading-[55px] font-bold text-[#2c323e] mb-2 font-serif">
-              Accelerated
+            <h2 className="text-[26px] ml-[8%] leading-[36px] font-bold text-[#2c323e] mb-1 font-serif">
+              Trusted Growth
             </h2>
-            <h2 className="text-[38px] -mt-3 ml-[8%] leading-[55px] font-bold text-[#2c323e] mb-6 font-serif">
-              Profile Growth
+            <h2 className="text-[26px] -mt-2 ml-[8%] leading-[36px] font-bold text-[#2c323e] mb-4 font-serif">
+              Experts
             </h2>
 
-            <div className="space-y-2 ml-[8%] text-black text-lg">
-              <p>That gets more and more people engaged</p>
-              <p>with your Instagram and TikTok pages,</p>
-              <p>making you more popular, more influential,</p>
-              <p>and more important on the apps.</p>
+            <div className="space-y-1 ml-[8%] text-black text-sm leading-relaxed">
+              <p>Since we began operations, we’ve helped</p>
+              <p>countless users grow their social media</p>
+              <p>presence across platforms, delivering billions</p>
+              <p>of Instagram interactions and hundreds of</p>
+              <p>thousands of TikTok engagements. Our</p>
+              <p>diverse community includes individual</p>
+              <p>content creators and everyday users looking</p>
+              <p>to expand their reach and connect with</p>
+              <p>others who share their interests.</p>
             </div>
 
-            <div className="mt-4 space-y-2 ml-[8%] text-gray-600 text-base">
-              <p>Buzzoid can make it happen! Our IG or TikTok</p>
-              <p>engagement packages arrive immediately, your</p>
-              <p>account stays safe, and you see fast organic</p>
-              <p>growth for your profile, pages, and posts!</p>
+            <div className="mt-3 space-y-1 ml-[8%] text-gray-600 text-sm">
+              <p>They all trust Buzzoid because we deliver the best</p>
+              <p>results available from any social media service</p>
+              <p>provider. That’s all thanks to our expert and</p>
+              <p>experienced staff, who understand the fastest and</p>
+              <p>most effective ways to generate organic account</p>
+              <p>growth, safely and according to all apps’ terms and</p>
+              <p>conditions.</p>
             </div>
           </div>
         </div>
